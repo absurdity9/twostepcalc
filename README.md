@@ -1,0 +1,1 @@
+readme for onepager calculator
