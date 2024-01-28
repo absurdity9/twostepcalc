@@ -61,8 +61,8 @@ function updateChart(salary) { // Logic to update casinin chart with data
 
   const salaryAmountDisplay = document.getElementById('salaryAmount'); // Update text with numbers
   const netMonthlySalaryDisplay = document.getElementById('netMonthlySalaryDisplay');
-  salaryAmountDisplay.textContent = salary.toFixed(2);
-  netMonthlySalaryDisplay.textContent = netMonthlySalary.toFixed(2);
+  salaryAmountDisplay.textContent = salary.toFixed(2).toLocaleString('en-US');
+  netMonthlySalaryDisplay.textContent = netMonthlySalary.toFixed(2).toLocaleString();
 }
 salaryInput.addEventListener('input', function () { // Update chart after salary value changes
   const salary = parseFloat(salaryInput.value);
@@ -84,9 +84,9 @@ function updateCashFlowChart() {  // Logic to update cashflow chart with data
     cashFlowChart.data.datasets[0].data = [netMonthlySalary, totalCosts, cashleft];
     cashFlowChart.update();
   
-    document.getElementById('totalCosts').textContent = totalCosts.toFixed(2); // Update text with numbers
-    document.getElementById('cashLeftDisplay1').textContent = cashleft.toFixed(2);
-    document.getElementById('cashLeftDisplay2').textContent = cashleft.toFixed(2);
+    document.getElementById('totalCosts').textContent = totalCosts.toFixed(2).toLocaleString(); // Update text with numbers
+    document.getElementById('cashLeftDisplay1').textContent = cashleft.toFixed(2).toLocaleString();
+    document.getElementById('cashLeftDisplay2').textContent = cashleft.toFixed(2).toLocaleString();
   }
 costShelterBillsInput.addEventListener('input', updateCashFlowChart); // Update chart after value changes
 costTravelInput.addEventListener('input', updateCashFlowChart);
