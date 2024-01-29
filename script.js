@@ -89,6 +89,9 @@ function updateCashFlowChart() {  // Logic to update cashflow chart with data
     document.getElementById('totalCosts').textContent = totalCosts.toFixed(2).toLocaleString(); // Update text with numbers
     document.getElementById('cashLeftDisplay1').textContent = cashleft.toFixed(2).toLocaleString();
     document.getElementById('cashLeftDisplay2').textContent = cashleft.toFixed(2).toLocaleString();
+    
+    inOutRatio = ((netMonthlySalary - totalCosts) / netMonthlySalary) * 100;
+    document.getElementById("in-out-ratio").textContent = inOutRatio.toFixed(2);
   }
 costShelterBillsInput.addEventListener('input', updateCashFlowChart); // Update chart after value changes
 costTravelInput.addEventListener('input', updateCashFlowChart);
