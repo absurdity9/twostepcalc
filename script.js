@@ -120,8 +120,14 @@ function updateMoneyMapChart() { // Logic to calculate and update the chart
   amtVanguard *=12;
   const years = 5;
   let capital_amounts = calculateCapitalGrowth(amtSavings, yieldSavings, amtVanguard, yieldVanguard, years);
-  capitalDisplay.textContent = capital_amounts[4].toString();
-  moneyMapChart.data.datasets[0].data = capital_amounts;
+  const capital_over_time = [];
+  let cumulativeSum = 0;
+  for (let i = 0; i < capital_amounts.length; i++) {
+    cumulativeSum += parseFloat(capital_amounts[i]);
+    capital_over_time.push(cumulativeSum.toFixed(2));
+  }
+  capitalDisplay.textContent = cumulativeSum.toLocaleString();
+  moneyMapChart.data.datasets[0].data = capital_over_time;
   moneyMapChart.update();
 }
 
@@ -131,25 +137,32 @@ amtVanguardInput.addEventListener('input', updateMoneyMapChart);
 yieldVanguardInput.addEventListener('input', updateMoneyMapChart);
 
 const moneyMapChart = new Chart(moneyMapChartElement, { // Moneymap chart
-  type: 'bar',
+  type: 'line',
   data: {
     labels: ['1', '2', '3', '4', '5'],
     datasets: [
       {
-        label: '',
+        label: "Household Assets",
         data: [],
-        backgroundColor: 'rgba(75, 192, 192, 0.6)',
-        borderWidth: 1
-      }
-    ]
+        fill: true,
+        backgroundColor: "#519294",
+        borderWidth: 1,
+      },
+    ],
   },
   options: {
-    responsive: false,
+    responsive: true,
     scales: {
+      x: {
+        ticks: {
+          color: "#B3AEBD", // Set the x-axis label font color to ##B3AEBD
+        },
+      },
       y: {
-        type: 'linear', // Set the scale type to 'linear'
-        beginAtZero: true
-      }
-    }
-  }
+        ticks: {
+          color: "#B3AEBD", // Set the y-axis label font color to ##B3AEBD
+        },
+      },
+    },
+  },
 });
