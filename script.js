@@ -60,9 +60,11 @@ function updateChart(salary) { // Logic to update casinin chart with data
   chart.update();
 
   const salaryAmountDisplay = document.getElementById('salaryAmount'); // Update text with numbers
+  salaryAmountDisplay.textContent = salary.toLocaleString();
   const netMonthlySalaryDisplay = document.getElementById('netMonthlySalaryDisplay');
-  salaryAmountDisplay.textContent = salary.toFixed(2).toLocaleString('en-US');
-  netMonthlySalaryDisplay.textContent = netMonthlySalary.toFixed(2).toLocaleString();
+  const formattedSalaryString = netMonthlySalary.toFixed(2);
+  const formattedSalary = parseFloat(formattedSalaryString);
+  netMonthlySalaryDisplay.textContent = formattedSalary.toLocaleString();
 }
 salaryInput.addEventListener('input', function () { // Update chart after salary value changes
   const salary = parseFloat(salaryInput.value);
