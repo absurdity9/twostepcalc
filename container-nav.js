@@ -1,18 +1,30 @@
-// From step 1 to step 2
 const container1 = document.getElementById('container1');
-  const container2 = document.getElementById('container2');
-  const nextButton = document.getElementById('nextButton');
+const container2 = document.getElementById('container2');
+const cashin_nextButton = document.getElementById('cashin_nextButton');
 
-  nextButton.addEventListener('click', function() {
-    container1.style.display = 'none';
-    container2.style.display = 'block';
-  });
+cashin_nextButton.addEventListener('click', function() {
+  var formData = {
+    salary: salaryValue,
+    income_after_tax: netMonthlySalary,
+  };
+  var formData2 = {
+    age: age,
+    industry: industry
+  };
 
-// From step 2 to step 3
-  const container3 = document.getElementById('container3');
-  const nextButton2 = document.getElementById('nextButton2');
+  localStorage.setItem('IncomeData', JSON.stringify(formData));
+  localStorage.setItem('UserProfileData', JSON.stringify(formData2));
 
-  nextButton2.addEventListener('click', function() {
+  container1.style.display = 'none';
+  container2.style.display = 'block';
+});
+
+const container3 = document.getElementById('container3');
+const cashout_nextButton = document.getElementById('cashout_nextButton');
+
+  cashout_nextButton.addEventListener('click', function() {
     container2.style.display = 'none';
     container3.style.display = 'block';
   });
+
+const assets_nextButton = document.getElementById('assets_nextButton');

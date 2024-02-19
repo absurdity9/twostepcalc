@@ -18,11 +18,17 @@ const chart = new Chart(cashInChart, { // "Cashin" chart
   options: {
     responsive: false,
     scales: {
+      x: {
+        ticks: {
+          color: "#B3AEBD", // Set the x-axis label font color to ##B3AEBD
+        },
+      },
       y: {
-        type: 'linear', // Set the scale type to 'linear'
-        beginAtZero: true,
-      }
-    }
+        ticks: {
+          color: "#B3AEBD", // Set the y-axis label font color to ##B3AEBD
+        },
+      },
+    },
   }
 });
 const costShelterBillsInput = document.getElementById('cost_sh_bills');
@@ -46,11 +52,17 @@ const cashFlowChart = new Chart(cashFlowChartCanvas, { // Cashflow chart
   options: {
     responsive: false,
     scales: {
+      x: {
+        ticks: {
+          color: "#B3AEBD", // Set the x-axis label font color to ##B3AEBD
+        },
+      },
       y: {
-        type: 'linear', // Set the scale type to 'linear'
-        beginAtZero: true,
-      }
-    }
+        ticks: {
+          color: "#B3AEBD", // Set the y-axis label font color to ##B3AEBD
+        },
+      },
+    },
   }
 });
 
