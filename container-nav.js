@@ -1,3 +1,5 @@
+// Container 1
+
 const container1 = document.getElementById('container1');
 const container2 = document.getElementById('container2');
 const cashin_nextButton = document.getElementById('cashin_nextButton');
@@ -22,12 +24,30 @@ cashin_nextButton.addEventListener('click', function() {
   container2.style.display = 'block';
 });
 
+// Container 2
+
 const container3 = document.getElementById('container3');
 const cashout_nextButton = document.getElementById('cashout_nextButton');
 
-  cashout_nextButton.addEventListener('click', function() {
-    container2.style.display = 'none';
-    container3.style.display = 'block';
-  });
+cashout_nextButton.addEventListener('click', function() {
+
+  let cost_sh_billsInput = document.getElementById('cost_sh_bills').value;
+  let cost_travelInput = document.getElementById('cost_travel').value;
+  let cost_groceriesInput = document.getElementById('cost_groceries').value;
+  let cost_otherInput = document.getElementById('cost_other').value;
+
+  var formData = {
+    cost_sh_bills: cost_sh_billsInput,
+    cost_travel: cost_travelInput,
+    cost_groceries: cost_groceriesInput,
+    cost_other: cost_otherInput,
+  };
+  
+  localStorage.setItem('ExpensesData', JSON.stringify(formData));
+
+  container2.style.display = 'none';
+  container3.style.display = 'block';
+
+});
 
 const assets_nextButton = document.getElementById('assets_nextButton');
