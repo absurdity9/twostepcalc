@@ -2,6 +2,7 @@
 let netMonthlySalary;
 let cashleft;
 const salaryInput = document.getElementById('Salary');
+
 const cashInChart = document.getElementById('cashInChart');
 const chart = new Chart(cashInChart, { // "Cashin" chart
   type: 'bar',
@@ -14,40 +15,6 @@ const chart = new Chart(cashInChart, { // "Cashin" chart
       borderColor: ['rgba(75, 192, 192, 1)', 'rgba(0, 0, 0, 0)', 'rgba(0, 0, 0, 0)'],
       borderWidth: 1
     }]
-  },
-  options: {
-    responsive: false,
-    scales: {
-      x: {
-        ticks: {
-          color: "#B3AEBD", // Set the x-axis label font color to ##B3AEBD
-        },
-      },
-      y: {
-        ticks: {
-          color: "#B3AEBD", // Set the y-axis label font color to ##B3AEBD
-        },
-      },
-    },
-  }
-});
-const costShelterBillsInput = document.getElementById('cost_sh_bills');
-const costTravelInput = document.getElementById('cost_travel');
-const costGroceriesInput = document.getElementById('cost_groceries');
-const costOtherInput = document.getElementById('cost_other');
-const cashFlowChartCanvas = document.getElementById('cashFlowChart');
-const cashFlowChart = new Chart(cashFlowChartCanvas, { // Cashflow chart
-  type: 'bar',
-  data: {
-    labels: ['Cash In', 'Cash Out', 'Cash Left'], 
-    datasets: [
-      {
-        label: '',
-        data: [],
-        backgroundColor: 'rgba(75, 192, 192, 0.6)',
-        borderWidth: 1
-      },
-    ]
   },
   options: {
     responsive: false,
@@ -84,8 +51,41 @@ salaryInput.addEventListener('input', function () { // Update chart after salary
     updateChart(salary);
   }
 });
-
 // Second Chart
+const costShelterBillsInput = document.getElementById('cost_sh_bills');
+const costTravelInput = document.getElementById('cost_travel');
+const costGroceriesInput = document.getElementById('cost_groceries');
+const costOtherInput = document.getElementById('cost_other');
+const cashFlowChartCanvas = document.getElementById('cashFlowChart');
+const cashFlowChart = new Chart(cashFlowChartCanvas, { // Cashflow chart
+  type: 'bar',
+  data: {
+    labels: ['Cash In', 'Cash Out', 'Cash Left'], 
+    datasets: [
+      {
+        label: '',
+        data: [],
+        backgroundColor: 'rgba(75, 192, 192, 0.6)',
+        borderWidth: 1
+      },
+    ]
+  },
+  options: {
+    responsive: false,
+    scales: {
+      x: {
+        ticks: {
+          color: "#B3AEBD", // Set the x-axis label font color to ##B3AEBD
+        },
+      },
+      y: {
+        ticks: {
+          color: "#B3AEBD", // Set the y-axis label font color to ##B3AEBD
+        },
+      },
+    },
+  }
+});
 
 function updateCashFlowChart() {  // Logic to update cashflow chart with data
     const totalCosts =
