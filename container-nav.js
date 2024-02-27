@@ -50,4 +50,25 @@ cashout_nextButton.addEventListener('click', function() {
 
 });
 
+// Container 3
+
 const assets_nextButton = document.getElementById('assets_nextButton');
+
+assets_nextButton.addEventListener('click', function(){
+
+  let amtSavings = document.getElementById('amount_Savings').value;
+  let yieldSavings = document.getElementById('yield_Savings').value;
+  let amtVanguard = document.getElementById('amt_Vanguard').value;
+  let yieldVanguard = document.getElementById('yield_Vanguard').value;
+
+  var formData = {
+    savings_amt: amtSavings,
+    savings_rate: yieldSavings,
+    etf_amt: amtVanguard,
+    etf_rate: yieldVanguard
+  };
+
+  localStorage.setItem('SavingsInvestmentsData', JSON.stringify(formData));
+  window.location.href = 'signup.html';
+
+});
